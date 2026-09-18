@@ -4,7 +4,6 @@ import {
   BrainCircuit,
   Code2,
   GitBranch,
-  Sparkles,
 } from "lucide-react";
 import { Archivo, IBM_Plex_Mono } from "next/font/google";
 
@@ -34,34 +33,7 @@ const workshops = [
     ],
     icon: GitBranch,
     status: "Available",
-  },
-  {
-    number: "02",
-    title: "Web Development Workshop",
-    description:
-      "Learn the foundations of modern web development by building practical projects and understanding how the pieces fit together.",
-    topics: [
-      "HTML & CSS",
-      "JavaScript",
-      "Web fundamentals",
-      "Project building",
-    ],
-    icon: Code2,
-    status: "Coming soon",
-  },
-  {
-    number: "03",
-    title: "AI Workshop",
-    description:
-      "Explore practical AI tools and concepts while building useful things instead of just talking about them.",
-    topics: [
-      "AI fundamentals",
-      "AI tools",
-      "Prompting",
-      "Practical projects",
-    ],
-    icon: BrainCircuit,
-    status: "Coming soon",
+    href: "https://forms.gle/k4rPe4g6AeVd4WDW8"
   },
 ];
 
@@ -156,7 +128,8 @@ export default function WorkshopsPage() {
                   <div className="mt-8 border-t border-[#DEDFDA] pt-6">
                     {isAvailable ? (
                       <Link
-                        href="/workshops"
+                        href={workshop.href}
+                        target="_blank"
                         className="inline-flex items-center gap-2 font-[family-name:var(--font-mono)] text-[12px] font-medium text-[#1F6F5C] transition hover:text-[#195A4A]"
                       >
                         Explore workshop
