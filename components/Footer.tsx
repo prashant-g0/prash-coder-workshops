@@ -26,7 +26,7 @@ export default function Footer() {
     <footer
       className={`${archivo.variable} ${mono.variable} border-t border-[#DEDFDA] bg-[#F6F6F3]`}
     >
-      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-12">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-10 lg:px-10">
         {/* Brand + Navigation */}
         <div className="grid gap-12 lg:grid-cols-[1.4fr_0.6fr]">
           {/* Brand + Vision */}
@@ -35,18 +35,13 @@ export default function Footer() {
               prash.coder / workshop
             </p>
 
-            <h2 className="mt-5 max-w-lg text-3xl font-semibold leading-tight tracking-tight text-[#16191C] sm:text-4xl">
+            <h2 className="mt-5 mb-7 max-w-lg text-3xl font-semibold leading-tight tracking-tight text-[#16191C] sm:text-4xl">
               Learn things.
               <br />
               <span className="text-[#1F6F5C]">Build things.</span>
               <br />
               Share things.
             </h2>
-
-            <p className="mt-5 max-w-lg text-[15px] leading-7 text-[#565B60]">
-              The vision is simple: make technical learning practical,
-              collaborative, and something you actually enjoy doing.
-            </p>
           </div>
 
           {/* Navigation */}
