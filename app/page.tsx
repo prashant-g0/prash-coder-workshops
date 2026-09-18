@@ -9,6 +9,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { Archivo, IBM_Plex_Mono } from "next/font/google";
+import TestimonialMarquee from "@/components/TestimonialMarquee";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -334,6 +335,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <TestimonialMarquee />
+
       {/* CTA */}
       <section className="w-full px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
         <div className="mx-auto max-w-7xl">
@@ -361,6 +365,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
     </div>
   );
 }
