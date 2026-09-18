@@ -16,6 +16,33 @@ const mono = IBM_Plex_Mono({
   variable: "--font-mono",
 });
 
+const latestProjects = [
+  {
+    number: "01",
+    title: "urllio - URL Shortener",
+    description:
+      "Shorten, manage, and track your links with urll.io, a fast and simple URL shortener with analytics and QR codes.",
+    tags: ["Next.js", "FastAPI", "PostgreSQL"],
+    href: "https://urllio.vercel.app/",
+  },
+  {
+    number: "02",
+    title: "Blush - Secret Messages",
+    description:
+      "Blush is a secure space for unsaid words. Send a private message that vanishes after one read, or post an anonymous secret to the public wall",
+    tags: ["Streamlit", "Python", "PostgreSQL"],
+    href: "https://blushnow.streamlit.app/",
+  },
+  {
+    number: "03",
+    title: "Your Crush Predictor",
+    description:
+      "An ML based crush likelihood predictor built with Streamlit..",
+    tags: ["Python", "ML", "Streamlit"],
+    href: "https://crushpredictor.streamlit.app/prediction",
+  },
+];
+
 const workshops = [
   {
     number: "01",
@@ -23,23 +50,7 @@ const workshops = [
     description:
       "Learn Git and GitHub through a real collaborative workflow - from your first commit to your first pull request.",
     tags: ["Git", "GitHub", "Collaboration"],
-    href: "/workshops",
-  },
-  {
-    number: "02",
-    title: "Web Development Workshop",
-    description:
-      "Build for the web while learning the practical concepts, tools, and workflows developers use every day.",
-    tags: ["Web", "Development", "Projects"],
-    href: "/workshops"
-  },
-  {
-    number: "03",
-    title: "AI Workshop",
-    description:
-      "Explore practical ways to understand and use AI tools to build, experiment, and solve real-world problems.",
-    tags: ["AI", "Tools", "Building"],
-    href: "/workshops"
+    href: "https://forms.gle/k4rPe4g6AeVd4WDW8",
   },
 ];
 
@@ -110,14 +121,20 @@ export default function AboutPage() {
                   const Icon = social.icon;
 
                   return (
-                    <Link
-                      key={social.label}
-                      href={social.href}
-                      aria-label={social.label}
-                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#DEDFDA] bg-[#F6F6F3] text-[#565B60] transition hover:border-[#1F6F5C] hover:bg-[#E4EFEA] hover:text-[#1F6F5C]"
-                    >
-                      <Icon className="h-4 w-4" />
-                    </Link>
+                    <div key={social.label} className="group relative">
+                      <Link
+                        href={social.href}
+                        aria-label={social.label}
+                        className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#DEDFDA] bg-[#F6F6F3] text-[#565B60] transition hover:border-[#1F6F5C] hover:bg-[#E4EFEA] hover:text-[#1F6F5C]"
+                      >
+                        <Icon className="h-4 w-4" />
+                      </Link>
+
+                      {/* Tooltip */}
+                      <span className="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 translate-y-1 opacity-0 whitespace-nowrap rounded-md bg-[#16191C] px-2 py-1 font-[family-name:var(--font-mono)] text-[9px] text-white transition-all duration-150 group-hover:translate-y-0 group-hover:opacity-100">
+                        {social.label}
+                      </span>
+                    </div>
                   );
                 })}
               </div>
@@ -169,6 +186,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
+              {/* Approach */}
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
                 <div className="rounded-xl border border-[#DEDFDA] bg-white p-5">
                   <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-wider text-[#7A7F83]">
@@ -197,6 +215,66 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
+
+              {/* Latest Projects */}
+              {latestProjects.length > 0 && (
+                <div className="mt-10 border-t border-[#DEDFDA] pt-8">
+                  <div className="flex items-end justify-between gap-4">
+                    <div>
+                      <p className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-wider text-[#1F6F5C]">
+                        Recent work
+                      </p>
+
+                      <h3 className="mt-2 text-xl font-semibold tracking-tight text-[#16191C]">
+                        Latest projects
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                    {latestProjects.map((project) => (
+                      <Link
+                        key={project.number}
+                        href={project.href}
+                        target="_blank"
+                        className="group flex min-h-[175px] flex-col rounded-xl border border-[#DEDFDA] bg-white p-4 transition duration-200 hover:-translate-y-0.5 hover:border-[#C9DCD4]"
+                      >
+                        {/* Header */}
+                        <div className="flex items-center justify-between">
+                          <span className="font-[family-name:var(--font-mono)] text-[10px] text-[#7A7F83]">
+                            {project.number}
+                          </span>
+
+                          <ArrowUpRight className="h-3.5 w-3.5 text-[#7A7F83] transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#1F6F5C]" />
+                        </div>
+
+                        {/* Project Info */}
+                        <div className="mt-5">
+                          <h4 className="text-sm font-semibold leading-5 text-[#16191C]">
+                            {project.title}
+                          </h4>
+
+                          <p className="mt-1.5 line-clamp-2 text-[11px] leading-5 text-[#7A7F83]">
+                            {project.description}
+                          </p>
+                        </div>
+
+                        {/* Tags */}
+                        <div className="mt-auto flex flex-wrap gap-1.5 pt-4">
+                          {project.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-full bg-[#F6F6F3] px-2 py-1 font-[family-name:var(--font-mono)] text-[9px] text-[#565B60]"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
@@ -232,6 +310,7 @@ export default function AboutPage() {
                 <Link
                   href={workshop.href}
                   key={workshop.number}
+                  target="_blank"
                   className="group rounded-2xl border border-[#DEDFDA] bg-white p-6 transition duration-200 hover:-translate-y-1 hover:border-[#C9DCD4]"
                 >
                   <div className="flex items-center justify-between">
