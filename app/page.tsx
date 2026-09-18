@@ -28,18 +28,7 @@ const workshops = [
     description:
       "Understand version control and learn how developers collaborate on real projects.",
     icon: GitBranch,
-  },
-  {
-    title: "Web Development",
-    description:
-      "Learn the foundations of building for the web through practical projects.",
-    icon: Code2,
-  },
-  {
-    title: "AI",
-    description:
-      "Explore AI tools and concepts by building useful things with them.",
-    icon: BrainCircuit,
+    href: "https://forms.gle/k4rPe4g6AeVd4WDW8",
   },
 ];
 
@@ -289,7 +278,8 @@ export default function Home() {
                   </p>
 
                   <Link
-                    href="/workshops"
+                    href={workshop.href}
+                    target="_blank"
                     className="mt-7 inline-flex items-center gap-1 font-[family-name:var(--font-mono)] text-[11px] font-medium text-[#1F6F5C]"
                   >
                     Explore
