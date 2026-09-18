@@ -1,11 +1,10 @@
 import Link from "next/link";
 import {
   ArrowUpRight,
-  BrainCircuit,
-  Code2,
   GitBranch,
 } from "lucide-react";
 import { Archivo, IBM_Plex_Mono } from "next/font/google";
+import TestimonialMarquee from "@/components/TestimonialMarquee";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -204,6 +203,9 @@ export default function WorkshopsPage() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+          <TestimonialMarquee />
     </div>
   );
 }
