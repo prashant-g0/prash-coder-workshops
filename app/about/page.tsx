@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Code2 } from "lucide-react";
-import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedin, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { Archivo, IBM_Plex_Mono } from "next/font/google";
 
 const archivo = Archivo({
@@ -70,6 +70,16 @@ const socials = [
     href: "https://www.instagram.com/prash.coder",
     icon: FaInstagram,
   },
+  {
+    label: "Youtube",
+    href: "https://www.youtube.com/@prashcoder/shorts",
+    icon: FaYoutube,
+  },
+  {
+    label: "Community",
+    href: "https://chat.whatsapp.com/BBpNmYztCzc6aB83Ih2HJC",
+    icon: FaWhatsapp,
+  },
 ];
 
 export default function AboutPage() {
@@ -125,6 +135,7 @@ export default function AboutPage() {
                       <Link
                         href={social.href}
                         aria-label={social.label}
+                        target="_blank"
                         className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#DEDFDA] bg-[#F6F6F3] text-[#565B60] transition hover:border-[#1F6F5C] hover:bg-[#E4EFEA] hover:text-[#1F6F5C]"
                       >
                         <Icon className="h-4 w-4" />
